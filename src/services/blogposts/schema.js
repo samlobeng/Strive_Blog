@@ -17,11 +17,25 @@ const PostSchema = new Schema(
       required: true,
     },
     readTime: {
-        value:Number,
-        unit: String,
+        value:{
+            type: Number,
+        },
+        unit:{
+            type: String,
+        }
     },
-    author: {name: String, avatar: String},
-    content:{type: String, required: true}, 
+    author:{
+        name:{
+            type:String,
+        }, 
+        avatar:{
+            type:String,
+        },
+    },
+    content:{
+        type: String,
+        required: true,
+    },
   },
   {
     timestamps: true, // adding createdAt and modifiedAt automatically

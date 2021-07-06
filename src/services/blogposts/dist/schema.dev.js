@@ -25,12 +25,20 @@ var PostSchema = new Schema({
     required: true
   },
   readTime: {
-    value: Number,
-    unit: String
+    value: {
+      type: Number
+    },
+    unit: {
+      type: String
+    }
   },
   author: {
-    name: String,
-    avatar: String
+    name: {
+      type: String
+    },
+    avatar: {
+      type: String
+    }
   },
   content: {
     type: String,
