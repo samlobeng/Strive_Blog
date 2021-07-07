@@ -23,7 +23,7 @@ postsRouter.post("/", function _callee(req, res, next) {
       switch (_context.prev = _context.next) {
         case 0:
           _context.prev = 0;
-          newPost = new PostModel(req.body);
+          newPost = new _schema["default"](req.body);
           _context.next = 4;
           return regeneratorRuntime.awrap(newPost.save());
 
@@ -62,20 +62,21 @@ postsRouter.get("/", function _callee2(req, res, next) {
         case 0:
           _context2.prev = 0;
           _context2.next = 3;
-          return regeneratorRuntime.awrap(PostModel.find());
+          return regeneratorRuntime.awrap(_schema["default"].find());
 
         case 3:
           posts = _context2.sent;
           res.send(posts);
-          _context2.next = 10;
+          _context2.next = 11;
           break;
 
         case 7:
           _context2.prev = 7;
           _context2.t0 = _context2["catch"](0);
+          console.log(_context2.t0);
           next((0, _httpErrors["default"])(500, "An error occurred while getting users' list "));
 
-        case 10:
+        case 11:
         case "end":
           return _context2.stop();
       }
@@ -91,7 +92,7 @@ postsRouter.get("/:postId", function _callee3(req, res, next) {
           _context3.prev = 0;
           postId = req.params.postId;
           _context3.next = 4;
-          return regeneratorRuntime.awrap(PostModel.findById(postId));
+          return regeneratorRuntime.awrap(_schema["default"].findById(postId));
 
         case 4:
           post = _context3.sent;
@@ -126,7 +127,7 @@ postsRouter["delete"]("/:postId", function _callee4(req, res, next) {
           _context4.prev = 0;
           postId = req.params.postId;
           _context4.next = 4;
-          return regeneratorRuntime.awrap(PostModel.findByIdAndDelete(postId));
+          return regeneratorRuntime.awrap(_schema["default"].findByIdAndDelete(postId));
 
         case 4:
           deletedPost = _context4.sent;
@@ -161,7 +162,7 @@ postsRouter.put("/:postId", function _callee5(req, res, next) {
           _context5.prev = 0;
           postId = req.params.postId;
           _context5.next = 4;
-          return regeneratorRuntime.awrap(PostModel.findByIdAndUpdate(postId, req.body, {
+          return regeneratorRuntime.awrap(_schema["default"].findByIdAndUpdate(postId, req.body, {
             "new": true,
             runValidators: true
           }));
@@ -189,6 +190,67 @@ postsRouter.put("/:postId", function _callee5(req, res, next) {
       }
     }
   }, null, null, [[0, 8]]);
+}); // comments route
+
+postsRouter.post("/:id", function _callee6(req, res, next) {
+  return regeneratorRuntime.async(function _callee6$(_context6) {
+    while (1) {
+      switch (_context6.prev = _context6.next) {
+        case 0:
+        case "end":
+          return _context6.stop();
+      }
+    }
+  });
+});
+postsRouter.get("/:id/comments", function _callee7(req, res, next) {
+  return regeneratorRuntime.async(function _callee7$(_context7) {
+    while (1) {
+      switch (_context7.prev = _context7.next) {
+        case 0:
+          try {} catch (error) {
+            next((0, _httpErrors["default"])(500, "Generic Error"));
+          }
+
+        case 1:
+        case "end":
+          return _context7.stop();
+      }
+    }
+  });
+});
+postsRouter.get("/:id/comments/:commentId", function _callee8(req, res, next) {
+  return regeneratorRuntime.async(function _callee8$(_context8) {
+    while (1) {
+      switch (_context8.prev = _context8.next) {
+        case 0:
+        case "end":
+          return _context8.stop();
+      }
+    }
+  });
+});
+postsRouter["delete"]("/:id/comment/:commentId", function _callee9(req, res, next) {
+  return regeneratorRuntime.async(function _callee9$(_context9) {
+    while (1) {
+      switch (_context9.prev = _context9.next) {
+        case 0:
+        case "end":
+          return _context9.stop();
+      }
+    }
+  });
+});
+postsRouter.put("/:id/comment/:commentId", function _callee10(req, res, next) {
+  return regeneratorRuntime.async(function _callee10$(_context10) {
+    while (1) {
+      switch (_context10.prev = _context10.next) {
+        case 0:
+        case "end":
+          return _context10.stop();
+      }
+    }
+  });
 });
 var _default = postsRouter;
 exports["default"] = _default;

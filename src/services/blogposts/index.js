@@ -1,7 +1,7 @@
 import express from "express"
 import createError from "http-errors"
 
-import PostSchema from "./schema.js"
+import PostModel from "./schema.js"
 
 const postsRouter = express.Router()
 
@@ -25,6 +25,7 @@ postsRouter.get("/", async (req, res, next) => {
     const posts = await PostModel.find()
     res.send(posts)
   } catch (error) {
+      console.log(error)
     next(createError(500, "An error occurred while getting users' list "))
   }
 })
@@ -79,5 +80,29 @@ postsRouter.put("/:postId", async (req, res, next) => {
     next(createError(500, `An error occurred while updating user ${req.params.postId}`))
   }
 })
+// comments route
+postsRouter.post("/:id", async (req, res, next) => {
+    
+  })
+  
+  postsRouter.get("/:id/comments", async (req, res, next) => {
+    try {
+      
+    } catch (error) {
+      next(createError(500, "Generic Error"))
+    }
+  })
+  
+  postsRouter.get("/:id/comments/:commentId", async (req, res, next) => {
+   
+  })
+  
+  postsRouter.delete("/:id/comment/:commentId", async (req, res, next) => {
+    
+  })
+  
+  postsRouter.put("/:id/comment/:commentId", async (req, res, next) => {
+   
+  })
 
 export default postsRouter

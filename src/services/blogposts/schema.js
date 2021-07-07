@@ -36,6 +36,14 @@ const PostSchema = new Schema(
         type: String,
         required: true,
     },
+
+    comments: [
+        {
+          commentId: String,
+          title: String,
+          comment: String,
+        },
+      ],
   },
   {
     timestamps: true, // adding createdAt and modifiedAt automatically

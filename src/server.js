@@ -16,7 +16,7 @@ server.use(express.json())
 
 // ****************** ROUTES *******************************
 
-server.use("/posts", postsRoutes)
+server.use("/blogPosts", postsRoutes)
 
 // ****************** ERROR HANDLERS ***********************
 

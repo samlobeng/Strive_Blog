@@ -19,7 +19,7 @@ var port = process.env.PORT || 3001; // ****************** MIDDLEWARES *********
 
 server.use(_express["default"].json()); // ****************** ROUTES *******************************
 
-server.use("/posts", _index["default"]); // ****************** ERROR HANDLERS ***********************
+server.use("/blogPosts", _index["default"]); // ****************** ERROR HANDLERS ***********************
 
 server.use(_errorHandlers.badRequestErrorHandler);
 server.use(_errorHandlers.notFoundErrorHandler);
